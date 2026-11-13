@@ -4,12 +4,6 @@
  */
 package com.mycompany.zidan;
 
-/**
- *
- * @author user
- */
-public class PurchaseOrder {
-
 import jakarta.persistence.*;
 import org.hibernate.envers.Audited;
 import java.time.LocalDateTime;
@@ -57,5 +51,4 @@ public class PurchaseOrder {
     public void setPembuatPo(User pembuatPo) { this.pembuatPo = pembuatPo; }
     public List<Laptop> getDaftarLaptop() { return daftarLaptop; }
     public void setDaftarLaptop(List<Laptop> daftarLaptop) { this.daftarLaptop = daftarLaptop; }
-}
 }

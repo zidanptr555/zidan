@@ -4,14 +4,13 @@
  */
 package com.mycompany.zidan;
 
+import jakarta.persistence.*;
+import org.hibernate.envers.Audited;
+
 /**
  *
  * @author user
  */
-public class Laptop {
-import jakarta.persistence.*;
-import org.hibernate.envers.Audited;
-
 @Entity
 @Table(name = "tbl_laptop")
 @Audited
@@ -41,5 +40,4 @@ public class Laptop {
     public void setTipe(String tipe) { this.tipe = tipe; }
     public Double getHarga() { return harga; }
     public void setHarga(Double harga) { this.harga = harga; }
-}
 }

@@ -11,6 +11,11 @@ package com.mycompany.zidan;
 public class Zidan {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Mengubah baris ini agar langsung membuka LoginForm saat program dijalankan
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LoginForm().setVisible(true);
+            }
+        });
     }
 }

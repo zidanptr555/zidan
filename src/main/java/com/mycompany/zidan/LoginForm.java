@@ -129,8 +129,8 @@ try (
     java.sql.Connection conn = 
         java.sql.DriverManager.getConnection(url, "root", "");
     java.sql.PreparedStatement ps = conn.prepareStatement(
-        "SELECT * FROM pengguna WHERE username = ? AND password = ?"
-    )
+        "SELECT * FROM tbl_user WHERE username = ? AND password = ? AND aktif = 1"
+    )   
 ) 
   {
     ps.setString(1, username);
@@ -138,15 +138,27 @@ try (
     
     try (ResultSet rs = ps.executeQuery()) {
         if (rs.next()) {
-            javax.swing.JOptionPane.showMessageDialog(
-                this, "Login Sukses TOD! Halo cung!!!, " + username
-            );
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(
-                this, "Username atau password salah cung!!!"
-            );
-        }
-    }
+            String userRole = rs.getString("role");
+                    javax.swing.JOptionPane.showMessageDialog(
+                        this, "Login Sukses TOD! Halo cung!!!, " + username
+                    );
+
+                    java.awt.EventQueue.invokeLater(() -> {
+                        try {
+                            new LaptopForm(userRole).setVisible(true);
+                        } catch (Exception e) {
+                            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+                        }
+                    });
+
+                    this.dispose();
+                    
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(
+                        this, "Username atau password salah cung!!!"
+                    );
+                }
+            }
 }  catch (java.sql.SQLException e) {
     javax.swing.JOptionPane.showMessageDialog(
             this, "koneksi Database Gagal cung: "+ e.getMessage()
