@@ -31,5 +31,12 @@
     <artifactId>hibernate-envers</artifactId>
     <version>6.6.26.Final</version> 
     </dependency>
+    
+    <dependency>
+    <groupId>net.sf.jasperreports</groupId>
+    <artifactId>jasperreports</artifactId>
+    <version>6.21.5</version>
+    </dependency>
+
     </dependencies>
 </project>
